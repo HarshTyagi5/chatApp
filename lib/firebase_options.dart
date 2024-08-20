@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,16 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCoZqJCyjDUMTp-rF7sfvZExkETOz8oRRM',
+    appId: '1:1012464641423:web:30426075f8ad5375da57fa',
+    messagingSenderId: '1012464641423',
+    projectId: 'chit-chat-65046',
+    authDomain: 'chit-chat-65046.firebaseapp.com',
+    storageBucket: 'chit-chat-65046.appspot.com',
+    measurementId: 'G-2SWR49PX7M',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA3Az5xCIbDAUYuxFrzfVV6lBQBGNFeQ10',
     appId: '1:1012464641423:android:cae817909e25fb43da57fa',
@@ -64,5 +68,14 @@ class DefaultFirebaseOptions {
     projectId: 'chit-chat-65046',
     storageBucket: 'chit-chat-65046.appspot.com',
     iosBundleId: 'com.example.chitChat',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyAk1PprDsGeBDzEDpELdQ-DhiX67wa-k7U',
+    appId: '1:1012464641423:ios:7ced780c85bfb545da57fa',
+    messagingSenderId: '1012464641423',
+    projectId: 'chit-chat-65046',
+    storageBucket: 'chit-chat-65046.appspot.com',
+    iosBundleId: 'com.example.chitChat.RunnerTests',
   );
 }
